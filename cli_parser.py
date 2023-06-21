@@ -24,6 +24,10 @@ class ArgPar:
             choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"])
         self.parser.add_argument('-a', '--val', action="store", dest="val",
             help="value to find ie. 034")
+
+        #set filename
+        self.parser.add_argument('filename', type=argparse.FileType('r'),
+                                 nargs='?')
                 
         #dont use --log and -v similtaneously
         if self.parser.parse_args().loglevel != None: 
