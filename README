@@ -1,8 +1,22 @@
-####### biuldozer #######
-# use in env
-# to build:
-	buildozer -v android debug
-# to install
-	adb install -r bin/*.apk
-# to debug connect with transfer mode
-	adb logcat -s "python"
+
+program for helping in remember of numbers
+It is created with python and kivy, so works on Windows, OSX, Linux, and Android
+more on creating android APK in INSTALL file
+
+numbers are remembered as letters in words
+0	s and z
+1	t and d
+2	n
+3	m
+4	r
+5	l
+6	j
+7	k and g
+8	f and w
+9	p and b
+Other leters are not importand
+
+so ie. sun: s is 0 and n is 2 so it is 02
+
+Program helps to find a long word
+ 
