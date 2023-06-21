@@ -1,0 +1,37 @@
+<MyRoot>:
+	label_words: label_words
+	input_number: input_number
+	BoxLayout:
+		orientation: "vertical"
+
+
+		ScrollView:
+			do_scroll_y: True
+			do_scroll_x: False
+			Label:
+				id: label_words
+				text: "Put a number below to search for matching words"
+				font_size: 50
+				text_size: self.width, None
+				halign: 'center'
+				valign: 'middle'
+				size_hint_y: None
+				size: self.texture_size
+
+		TextInput:
+			id: input_number
+			hint_text: 'Put nuber here'
+			halign: 'center'
+			font_size: 50
+			size_hint_y: None
+			size: 1000, 100 
+			multiline: False
+	#		on_text: app.process()
+
+		Button:
+			text: "generate"
+			font_size: 50
+			size_hint_y: None
+			size: 1000, 100 
+			on_press: root.generate_words()
+

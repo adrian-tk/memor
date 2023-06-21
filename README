@@ -1,0 +1,8 @@
+####### biuldozer #######
+# use in env
+# to build:
+	buildozer -v android debug
+# to install
+	adb install -r bin/*.apk
+# to debug connect with transfer mode
+	adb logcat -s "python"
