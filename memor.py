@@ -7,6 +7,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 desired_val="666" #default value, if no parameter is given
 MAX_CHAR=10000           #maximum searched output in char
+INPUT_FILE="srt_dict.txt"
 
 #parsing command line arguments
 p = cli_parser.ArgPar()
@@ -16,13 +17,19 @@ if args.verbose: logging.getLogger().setLevel(logging.INFO)
 if args.loglevel!=None:    
     logl= (getattr(logging, args.loglevel))
     logging.getLogger().setLevel(logl)
-logging.debug (f"loglevel is set to: {logging.getLogger().level}")
-logging.debug(f"Command line arguments: {args}")
+logging.debug (f"Memor: loglevel is set to: {logging.getLogger().level}")
+logging.debug(f"Memor: Command line arguments: {args}")
    
 if args.val !=None: desired_val=args.val
 
 def search_words(num: str):
-    dct=open("srt_dict.txt", "r")
+    try:
+        dct=open(INPUT_FILE, "r")
+        logging.info(f"Memor: file {INPUT_FILE} used as dictionary")
+    except Exception as error:
+        logging.critical(f"Memor: can't open file {INPUT_FILE}")
+        logging.critical(f"Memor: {error}")
+        exit()
     ptrn = f"^{num} "
     words=""
     for word in dct:
